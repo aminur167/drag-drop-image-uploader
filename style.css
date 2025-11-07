@@ -1,8 +1,9 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+
 body {
     display: flex;
     justify-content: center;
@@ -10,10 +11,11 @@ body {
     background-color: #f1f1f1;
     height: 100vh;
 }
+
 .AppBody {
-    border:3px dotted #d1d6d6;
+    border: 3px dotted #d1d6d6;
     width: 700px;
-    height: 500px;
+    min-height: 500px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     border-radius: 5px;
@@ -21,39 +23,103 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+    transition: border-color 0.3s ease;
 }
+
 .AppBody.active {
     border: 3px solid rgb(49, 168, 12);
 }
+
+.AppBody.dragover {
+    border-color: #1e90ff;
+    background-color: #e6f0ff;
+}
+
 .icon {
     font-size: 100px;
     color: rgba(13, 204, 45, 0.651);
 }
+
 .AppBody h3 {
     font-size: 30px;
     font-weight: 500;
     color: #333;
+    margin-top: 10px;
+    text-align: center;
 }
-.AppBody span { 
+
+.AppBody span {
     font-size: 25px;
     font-weight: 500;
     color: #333;
     margin: 10px 0 15px 0;
 }
+
 .AppBody button {
-  padding: 10px 25px;
-  font-size: 20px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  background: #fff;
- color: rgba(13, 204, 45, 0.651);
-  border-radius: 5px;
-  cursor: pointer; 
-}
-.AppBody img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: rgba(13, 204, 45, 0.651);
     border-radius: 5px;
-  }
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.AppBody button:hover {
+    background-color: rgba(13, 204, 45, 0.2);
+}
+
+#preview {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+#preview .img-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Remove button */
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #ff4d4d;
+    transition: background-color 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
